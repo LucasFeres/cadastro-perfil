@@ -1,0 +1,51 @@
+body{
+    background: #28A745;
+    -webkit-backdrop-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    background-color: #cdcdcd;
+    height: 100px;
+    z-index: 3;
+}
+
+nav.navbar li {
+    margin: 0px 45px;
+    font-size: larger;
+}
+
+nav img {
+    margin: 0px 30px 0 0;
+}
+
+nav img {
+    max-width: 250px;
+    max-height: 45px;
+}
+
+label {
+    font-weight: bolder;
+}
+
+h1 {
+     text-align: center;
+     margin: 30px 0 -10px;
+ }
+ 
+ #msg {
+     height: 60px;
+ }
+
+ #grid-Cadastros tbody {
+     cursor: pointer;
+ }
+
+.navbar-nav li:first-child {
+    margin-left: 1em;
+}

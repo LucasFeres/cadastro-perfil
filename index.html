@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro De Banco Pessoal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header class="header">
+        <!-- Barra de navegação superior -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <h3 class="text-center text-white pt-5"><img></h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <img src="img\SaveMoney">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            Home
+                        </li>
+                        <li class="nav-item">
+                            Investimentos
+                        </li>
+                        <li class="nav-item">
+                            Perfil
+                        </li>
+                        <li class="nav-item">
+                            Sobre Nós
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+
+<body onload="init()">
+    <h1>Cadastro de Banco Pessoal</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Cadastro não encontrado.</div>-->
+            </div>
+        </div>
+
+        <form id="form-Cadastro">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputId">Id</label>
+                        <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                    </div>
+                <div class="col-sm-6">
+                    <label for="filtro_Bancos">Banco (*)</label>
+                    <select name="filtro_Bancos" id="filtro_Bancos" required placeholder="filtro_Bancos" class="form-control">
+                        <option value="">Selecione o Banco</option>
+                        <option value="Banco Do Brasil">Banco Do Brasil</option>
+                        <option value="Itaú">Itaú</option>
+                        <option value="Caixa Econômica Federal">Caixa Econômica Federal</option>
+                        <option value="Bradesco">Bradesco</option>
+                        <option value="Santander">Santander</option>
+                        <option value="Mercantil Do Brasil">Mercantil Do Brasil</option>
+                        <option value="Sicoob">Sicoob</option>
+                        <option value="Inter">Inter</option>
+                        <option value="C6">C6</option>
+                        <option value="NuBank">NuBank</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputNome">Nome (*)</label>
+                    <input type="text" class="form-control" id="inputNome" required placeholder="(99) 99999-9999">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputEmail">E-mail (*)</label>
+                    <input type="email" class="form-control" id="inputEmail" required placeholder="Insira o seu E-mail">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="filtro_Estado">Estado (*)</label>
+                    <select name="filtro_Estado" id="filtro_Estado" required placeholder="filtro_Estado" class="form-control">
+                        <option value="">Selecione Seu Estado</option>
+                        <option value="Acre">Acre</option>
+                        <option value="Alagoas">Alagoas</option>
+                        <option value="Amapá">Amapá</option>
+                        <option value="Amazonas">Amazonas</option>
+                        <option value="Bahia">Bahia</option>
+                        <option value="Ceará">Ceará</option>
+                        <option value="Distrito Federal">Distrito Federal</option>
+                        <option value="Espírito Santo">Espírito Santo</option>
+                        <option value="Goiás">Goiás</option>
+                        <option value="Maranhão">Maranhão</option>
+                        <option value="Mato Grosso">Mato Grosso</option>
+                        <option value="Mato Grosso Do Sul">Mato Grosso Do Sul</option>
+                        <option value="Minas Gerais">Minas Gerais</option>
+                        <option value="Pará">Pará</option>
+                        <option value="Pernambuco">Pernambuco</option>
+                        <option value="Piauí">Piauí</option>
+                        <option value="Rio De Janeiro">Rio De Janeiro</option>
+                        <option value="Rio Grande Do Norte">Rio grande Do Norte</option>
+                        <option value="Rio Grande Do Sul">Rio Grande Do Sul</option>
+                        <option value="Rondônia">Rondônia</option>
+                        <option value="Roraima">Roraima</option>
+                        <option value="Santa Catarina">Santa Catarina</option>
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Sergipe">Sergipe</option>
+                        <option value="Tocantins">Tocantins</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputCidade">Cidade</label>
+                    <input type="text" class="form-control" id="inputCidade" placeholder="Informe Sua Cidade">
+                </div>
+            </div>
+            <div class="form-group row">    
+                <div class="col-sm-6">
+                    <label for="inputCelular">Celular (*)</label>
+                    <input type="text" class="form-control" id="inputCelular" required placeholder="Informe Seu Numero de Celular">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputEmpresa">Empresa</label>
+                    <input type="text" class="form-control" id="inputEmpresa" placeholder="Informe Sua Empresa">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <small>(*) Campos obrigatórios</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="button" class="btn btn-warning" id="btnInsert" value="Inserir">
+                    <input type="button" class="btn btn-primary" id="btnUpdate" value="Alterar">
+                    <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
+                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Cadastro">
+                    <a href="lista_bancaria.html"><input type="button" class="btn btn-primary" id="btnClear" value="Pesquisar Cadastros"></a>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-Cadastros" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Banco</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Celular</th>
+                            <th scope="col">Empresa</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-Cadastros">
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        function exibeCadastros() {
+            // Remove todas as linhas do corpo da tabela
+            $("#table-Cadastros").html("");
+
+            // Popula a tabela com os registros do banco de dados
+            for (i = 0; i < db.data.length; i++) {
+                let Cadastro = db.data[i];    
+                $("#table-Cadastros").append(`<tr><td scope="row">${Cadastro.id}</td>
+                                                <td>${Cadastro.Banco}</td>
+                                                <td>${Cadastro.Nome}</td>
+                                                <td>${Cadastro.Email}</td>
+                                                <td>${Cadastro.Estado}</td>
+                                                <td>${Cadastro.Cidade}</td>
+                                                <td>${Cadastro.Celular}</td>
+                                                <td>${Cadastro.Empresa}</td>
+                                            </tr>`);
+            }
+        }
+
+        function init() {
+            // Adiciona funções para tratar os eventos 
+            $("#btnInsert").click(function () {
+                // Verfica se o Cadastro está preenchido corretamente
+                if (!$('#form-Cadastro')[0].checkValidity()) {
+                    displayMessage("Preencha o Cadastro corretamente.");
+                    return;
+                }
+
+                // Obtem os valores dos campos do Cadastro
+                let campoBanco = $("#filtro_Bancos").val();
+                let campoNome = $("#inputNome").val();
+                let campoEmail = $('#inputEmail').val();
+                let campoEstado = $("#filtro_Estado").val();
+                let campoCidade = $('#inputCidade').val();
+                let campoCelular = $('#inputCelular').val();
+                let campoEmpresa = $('#inputEmpresa').val();
+                let Cadastro = { Banco: campoBanco, 
+                    Nome: campoNome, 
+                    Email: campoEmail, 
+                    Estado: campoEstado, 
+                    Cidade: campoCidade,
+                    Celular: campoCelular,
+                    Empresa: campoEmpresa };
+
+                insertCadastro(Cadastro);
+
+                // Reexibe os Cadastros
+                exibeCadastros();
+
+                // Limpa o Cadastro
+                $("#form-Cadastro")[0].reset();
+            });
+
+            // Intercepta o click do botão Alterar
+            $("#btnUpdate").click(function () {
+                // Obtem os valores dos campos do Cadastro
+                let campoId = $("#inputId").val();
+                if (campoId == "") {
+                    displayMessage("Selecione um Cadastro para ser alterado.");
+                    return;
+                }
+                let campoBanco = $("#filtro_Bancos").val();
+                let campoNome = $("#inputNome").val();
+                let campoEmail = $("#inputEmail").val();
+                let campoEstado = $("#filtro_Estado").val();
+                let campoCidade = $("#inputCidade").val();
+                let campoCelular = $('#inputCelular').val();
+                let campoEmpresa = $('#inputEmpresa').val();
+                let Cadastro = { Banco: campoBanco, 
+                    Nome: campoNome, 
+                    Email: campoEmail, 
+                    Estado: campoEstado, 
+                    Cidade: campoCidade,
+                    Celular: campoCelular,
+                    Empresa: campoEmpresa };
+
+                updateCadastro(parseInt(campoId), Cadastro);
+
+                // Reexibe os Cadastros
+                exibeCadastros();
+
+                // Limpa o Cadastro
+                $("#form-Cadastro")[0].reset();
+            });
+            // Intercepta o click do botão Excluir
+            $("#btnDelete").click(function () {
+                if (confirm ("Deseja MESMO apagar o cadastro?") ){
+                    let campoId = $("#inputId").val();
+                if (campoId == "") {
+                    displayMessage("Selecione um Cadastro a ser excluído.");
+                    return;
+                }
+                deleteCadastro(parseInt(campoId));
+
+                // Reexibe os Cadastros
+                exibeCadastros();
+
+                // Limpa o Cadastro
+                $("#form-Cadastro")[0].reset();
+                }
+
+            });
+
+            // Intercepta o click do botão Listar Cadastros
+            $("#btnClear").click(function () {
+                $("#form-Cadastro")[0].reset();
+            });
+
+            // Oculta a mensagem de aviso após alguns segundos
+            $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
+
+            // Preenche o Cadastro quando o usuario clicar em uma linha da tabela 
+            $("#grid-Cadastros").on("click", "tr", function (e) {
+                let linhaCadastro = this;
+                colunas = linhaCadastro.querySelectorAll("td");
+
+                $("#inputId").val(colunas[0].innerText);
+                $("#filtro_Bancos").val(colunas[1].innerText);
+                $("#inputNome").val(colunas[2].innerText);
+                $("#inputEmail").val(colunas[3].innerText);
+                $("#filtro_Estado").val(colunas[4].innerText);
+                $("#inputCidade").val(colunas[5].innerText);
+                $("#inputCelular").val(colunas[6].innerText);
+                $("#inputEmpresa").val(colunas[7].innerText);
+            });
+
+            exibeCadastros();
+        }
+    </script>
+        <footer>
+        <div class="text-center p-3">
+            <p class="footertxt">© 2022 Copyright: Trabalho Interdisciplinar</b>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
