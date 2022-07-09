@@ -1,0 +1,20 @@
+body{
+    background: #28A745;
+}
+
+.header {
+    background-color: #cdcdcd;
+    width:100%;
+}
+
+nav.navbar a {
+    margin: 0 15px;
+}
+
+nav img {
+    max-width: 250px;
+    max-height: 40px;
+}
+.navbar-nav .active {
+    color: rgb(0, 0, 0) !important;
+}
