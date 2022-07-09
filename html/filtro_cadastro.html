@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Css-->
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <!--Titulo Da Pagina-->
+    <title>Filtro Perfil</title>
+</head>
+
+<body>
+    <header class="header">
+        <!-- Barra de navegação superior -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <h3 class="text-center text-white pt-5"><img></h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="col-xs-12 col-11 col-md-4">
+                    <img src="/img/SaveMoney.png">
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <a class="nav-link active" href="">Home</a>
+                        <a class="nav-link active" href="/html/perfil.html">Perfil</a>
+                        <a class="nav-link active" href="">Investimentos</a>
+                        <a class="nav-link active" href="">Notícias</a>
+                        <a class="nav-link active" href="">Sobre Nós</a>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" aria-label="Search" placeholder="Pesquisar ">
+                        <button class="btn btn-outline-light" type="submit">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <body onload="ListaBancaria()">
+        <h1>Listagem Bancária</h1>
+
+        <div class="container">
+            <div class="row">
+                <div id="msg" class="col-sm-10 offset-sm-1 ">
+                    <!--<div class="alert alert-warning">Cadastro não encontrado.</div>-->
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="msg" class="col-sm-2 offset-sm-10 ">
+                    <a href="/html/cadastro.html"><input type="button" class="btn btn-primary" id="btnClear"
+                            value="Cadastro"></a>
+                </div>
+            </div>
+
+            <form id="form-Cadastro">
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <select name="filtro_Estado" id="filtro_Estado" onchange="ListaBancaria()" class="form-control">
+                            <option value="">Selecione Seu Estado</option>
+                            <option value="Acre">Acre</option>
+                            <option value="Alagoas">Alagoas</option>
+                            <option value="Amapá">Amapá</option>
+                            <option value="Amazonas">Amazonas</option>
+                            <option value="Bahia">Bahia</option>
+                            <option value="Ceará">Ceará</option>
+                            <option value="Distrito Federal">Distrito Federal</option>
+                            <option value="Espírito Santo">Espírito Santo</option>
+                            <option value="Goiás">Goiás</option>
+                            <option value="Maranhão">Maranhão</option>
+                            <option value="Mato Grosso">Mato Grosso</option>
+                            <option value="Mato Grosso Do Sul">Mato Grosso Do Sul</option>
+                            <option value="Minas Gerais">Minas Gerais</option>
+                            <option value="Pará">Pará</option>
+                            <option value="Pernambuco">Pernambuco</option>
+                            <option value="Piauí">Piauí</option>
+                            <option value="Rio De Janeiro">Rio De Janeiro</option>
+                            <option value="Rio Grande Do Norte">Rio grande Do Norte</option>
+                            <option value="Rio Grande Do Sul">Rio Grande Do Sul</option>
+                            <option value="Rondônia">Rondônia</option>
+                            <option value="Roraima">Roraima</option>
+                            <option value="Santa Catarina">Santa Catarina</option>
+                            <option value="São Paulo">São Paulo</option>
+                            <option value="Sergipe">Sergipe</option>
+                            <option value="Tocantins">Tocantins</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-8">
+                        <select name="filtro_Bancos" id="filtro_Bancos" onchange="ListaBancaria()" class="form-control">
+                            <option value="">Selecione o Banco</option>
+                            <option value="Banco Do Brasil">Banco Do Brasil</option>
+                            <option value="Itaú">Itaú</option>
+                            <option value="Caixa Econômica Federal">Caixa Econômica Federal</option>
+                            <option value="Bradesco">Bradesco</option>
+                            <option value="Santander">Santander</option>
+                            <option value="Mercantil Do Brasil">Mercantil Do Brasil</option>
+                            <option value="Sicoob">Sicoob</option>
+                            <option value="Inter">Inter</option>
+                            <option value="C6">C6</option>
+                            <option value="NuBank">NuBank</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="grid-Cadastros" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Banco</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Cidade</th>
+                                <th scope="col">Celular</th>
+                                <th scope="col">Empresa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-Cadastros">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="/json/app.js"></script>
+        <script>
+            // função para listar na tabela os Cadastros que estão associados aos filtros 
+            function ListaBancaria() {
+
+                // Obtem os dados informados pelo usuário nos filtros
+                let fc = document.getElementById('filtro_Estado').value;
+                let fcg = document.getElementById('filtro_Bancos').value;
+
+                // limpa a lista de Cadastros apresentados
+                $("#table-Cadastros").empty();
+
+                // Popula a tabela com os registros do banco de dados
+                for (let index = 0; index < db.data.length; index++) {
+                    const Cadastro = db.data[index];
+
+                    // Verifica se os dados do Cadastro batem com os filtros
+                    if (((Cadastro.Estado == fc) || (fc == '')) &&
+                        ((Cadastro.Banco == fcg) || (fcg == ''))) {
+
+                        // Inclui o Cadastro na tabela    
+                        $("#table-Cadastros").append(`<tr><td scope="row">${Cadastro.id}</td>
+                                                    <td>${Cadastro.Banco}</td>
+                                                    <td>${Cadastro.Nome}</td>
+                                                    <td>${Cadastro.Email}</td>
+                                                    <td>${Cadastro.Estado}</td>
+                                                    <td>${Cadastro.Cidade}</td>
+                                                    <td>${Cadastro.Celular}</td>
+                                                    <td>${Cadastro.Empresa}</td>
+                                                </tr>`);
+                    }
+                }
+
+            }
+        </script>
+        <footer>
+            <div class="text-center p-3">
+                <p class="footertxt">© 2022 Copyright: Trabalho Interdisciplinar</b>
+                </p>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

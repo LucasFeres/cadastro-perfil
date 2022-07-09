@@ -5,49 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro De Banco Pessoal</title>
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Css-->
+    <link rel="stylesheet" href="/css/style1.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <!--Titulo Da Pagina-->
+    <title>Cadastro De Perfil</title>
 </head>
-<body>
+
+<body onload="init()">
     <header class="header">
         <!-- Barra de navegação superior -->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <h3 class="text-center text-white pt-5"><img></h3>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-controls="navbarNav"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <img src="img\SaveMoney">
+                <div class="col-xs-12 col-11 col-md-4">
+                    <img src="/img/SaveMoney.png">
+                </div>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            Home
-                        </li>
-                        <li class="nav-item">
-                            Investimentos
-                        </li>
-                        <li class="nav-item">
-                            Perfil
-                        </li>
-                        <li class="nav-item">
-                            Sobre Nós
-                        </li>
+                        <a class="nav-link active" href="">Home</a>
+                        <a class="nav-link active" href="/html/perfil.html">Perfil</a>
+                        <a class="nav-link active" href="">Investimentos</a>
+                        <a class="nav-link active" href="">Notícias</a>
+                        <a class="nav-link active" href="">Sobre Nós</a>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" aria-label="Search">
+                        <input class="form-control me-2" type="search" aria-label="Search" placeholder="Pesquisar ">
                         <button class="btn btn-outline-light" type="submit">Pesquisar</button>
                     </form>
                 </div>
             </div>
         </nav>
     </header>
-</body>
 
-<body onload="init()">
-    <h1>Cadastro de Banco Pessoal</h1>
+    <h1>Cadastro de Perfil</h1>
 
     <div class="container">
         <div class="row">
@@ -57,14 +56,15 @@
         </div>
 
         <form id="form-Cadastro">
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="inputId">Id</label>
-                        <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
-                    </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputId">Id</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="Automático" disabled>
+                </div>
                 <div class="col-sm-6">
                     <label for="filtro_Bancos">Banco (*)</label>
-                    <select name="filtro_Bancos" id="filtro_Bancos" required placeholder="filtro_Bancos" class="form-control">
+                    <select name="filtro_Bancos" id="filtro_Bancos" required placeholder="filtro_Bancos"
+                        class="form-control">
                         <option value="">Selecione o Banco</option>
                         <option value="Banco Do Brasil">Banco Do Brasil</option>
                         <option value="Itaú">Itaú</option>
@@ -82,7 +82,7 @@
             <div class="form-group row">
                 <div class="col-sm-6">
                     <label for="inputNome">Nome (*)</label>
-                    <input type="text" class="form-control" id="inputNome" required placeholder="(99) 99999-9999">
+                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o Seu Nome">
                 </div>
                 <div class="col-sm-6">
                     <label for="inputEmail">E-mail (*)</label>
@@ -92,7 +92,8 @@
             <div class="form-group row">
                 <div class="col-sm-6">
                     <label for="filtro_Estado">Estado (*)</label>
-                    <select name="filtro_Estado" id="filtro_Estado" required placeholder="filtro_Estado" class="form-control">
+                    <select name="filtro_Estado" id="filtro_Estado" required placeholder="filtro_Estado"
+                        class="form-control">
                         <option value="">Selecione Seu Estado</option>
                         <option value="Acre">Acre</option>
                         <option value="Alagoas">Alagoas</option>
@@ -126,10 +127,11 @@
                     <input type="text" class="form-control" id="inputCidade" placeholder="Informe Sua Cidade">
                 </div>
             </div>
-            <div class="form-group row">    
+            <div class="form-group row">
                 <div class="col-sm-6">
-                    <label for="inputCelular">Celular (*)</label>
-                    <input type="text" class="form-control" id="inputCelular" required placeholder="Informe Seu Numero de Celular">
+                    <label for="inputCelular" class="text-dark">Celular (*)</label><br>
+                    <input type="tel" id="inputCelular" name="txt_fone" required class="form-control"
+                        onkeydown="phoneMaskBrazil()" placeholder="(11) 99999-9999" maxlength="15">
                 </div>
                 <div class="col-sm-6">
                     <label for="inputEmpresa">Empresa</label>
@@ -147,7 +149,10 @@
                     <input type="button" class="btn btn-primary" id="btnUpdate" value="Alterar">
                     <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
                     <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Cadastro">
-                    <a href="lista_bancaria.html"><input type="button" class="btn btn-primary" id="btnClear" value="Pesquisar Cadastros"></a>
+                    <a href="/html/filtro_cadastro.html"><input type="button" class="btn btn-primary" id="btnClear"
+                            value="Filtrar Perfil"></a>
+                    <a href="/html/perfil.html"><input type="button" class="btn btn-warning" id="btnClear"
+                                value="Voltar Perfil"></a>
                 </div>
             </div>
         </form>
@@ -184,7 +189,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="app.js"></script>
+    <script src="/json/app.js"></script>
     <script>
         function exibeCadastros() {
             // Remove todas as linhas do corpo da tabela
@@ -192,16 +197,16 @@
 
             // Popula a tabela com os registros do banco de dados
             for (i = 0; i < db.data.length; i++) {
-                let Cadastro = db.data[i];    
+                let Cadastro = db.data[i];
                 $("#table-Cadastros").append(`<tr><td scope="row">${Cadastro.id}</td>
-                                                <td>${Cadastro.Banco}</td>
-                                                <td>${Cadastro.Nome}</td>
-                                                <td>${Cadastro.Email}</td>
-                                                <td>${Cadastro.Estado}</td>
-                                                <td>${Cadastro.Cidade}</td>
-                                                <td>${Cadastro.Celular}</td>
-                                                <td>${Cadastro.Empresa}</td>
-                                            </tr>`);
+                                                    <td>${Cadastro.Banco}</td>
+                                                    <td>${Cadastro.Nome}</td>
+                                                    <td>${Cadastro.Email}</td>
+                                                    <td>${Cadastro.Estado}</td>
+                                                    <td>${Cadastro.Cidade}</td>
+                                                    <td>${Cadastro.Celular}</td>
+                                                    <td>${Cadastro.Empresa}</td>
+                                                </tr>`);
             }
         }
 
@@ -222,13 +227,15 @@
                 let campoCidade = $('#inputCidade').val();
                 let campoCelular = $('#inputCelular').val();
                 let campoEmpresa = $('#inputEmpresa').val();
-                let Cadastro = { Banco: campoBanco, 
-                    Nome: campoNome, 
-                    Email: campoEmail, 
-                    Estado: campoEstado, 
+                let Cadastro = {
+                    Banco: campoBanco,
+                    Nome: campoNome,
+                    Email: campoEmail,
+                    Estado: campoEstado,
                     Cidade: campoCidade,
                     Celular: campoCelular,
-                    Empresa: campoEmpresa };
+                    Empresa: campoEmpresa
+                };
 
                 insertCadastro(Cadastro);
 
@@ -254,13 +261,15 @@
                 let campoCidade = $("#inputCidade").val();
                 let campoCelular = $('#inputCelular').val();
                 let campoEmpresa = $('#inputEmpresa').val();
-                let Cadastro = { Banco: campoBanco, 
-                    Nome: campoNome, 
-                    Email: campoEmail, 
-                    Estado: campoEstado, 
+                let Cadastro = {
+                    Banco: campoBanco,
+                    Nome: campoNome,
+                    Email: campoEmail,
+                    Estado: campoEstado,
                     Cidade: campoCidade,
                     Celular: campoCelular,
-                    Empresa: campoEmpresa };
+                    Empresa: campoEmpresa
+                };
 
                 updateCadastro(parseInt(campoId), Cadastro);
 
@@ -272,19 +281,19 @@
             });
             // Intercepta o click do botão Excluir
             $("#btnDelete").click(function () {
-                if (confirm ("Deseja MESMO apagar o cadastro?") ){
+                if (confirm("Deseja MESMO apagar o cadastro?")) {
                     let campoId = $("#inputId").val();
-                if (campoId == "") {
-                    displayMessage("Selecione um Cadastro a ser excluído.");
-                    return;
-                }
-                deleteCadastro(parseInt(campoId));
+                    if (campoId == "") {
+                        displayMessage("Selecione um Cadastro a ser excluído.");
+                        return;
+                    }
+                    deleteCadastro(parseInt(campoId));
 
-                // Reexibe os Cadastros
-                exibeCadastros();
+                    // Reexibe os Cadastros
+                    exibeCadastros();
 
-                // Limpa o Cadastro
-                $("#form-Cadastro")[0].reset();
+                    // Limpa o Cadastro
+                    $("#form-Cadastro")[0].reset();
                 }
 
             });
@@ -321,10 +330,24 @@
             exibeCadastros();
         }
     </script>
-        <footer>
+    <script>
+        function phoneMaskBrazil() {
+            var key = window.event.key;
+            var element = window.event.target;
+            var isAllowed = /\d|Backspace|Tab/;
+            if (!isAllowed.test(key)) window.event.preventDefault();
+
+            var inputValue = element.value;
+            inputValue = inputValue.replace(/\D/g, '');
+            inputValue = inputValue.replace(/(^\d{2})(\d)/, '($1) $2');
+            inputValue = inputValue.replace(/(\d{4,5})(\d{4}$)/, '$1-$2');
+
+            element.value = inputValue;
+        }
+    </script>
+    <footer>
         <div class="text-center p-3">
-            <p class="footertxt">© 2022 Copyright: Trabalho Interdisciplinar</b>
-            </p>
+            <p class="footertxt">© 2022 Copyright: Trabalho Interdisciplinar</b></p>
         </div>
     </footer>
 </body>

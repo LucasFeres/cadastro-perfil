@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Css-->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <!--Titulo Da Pagina-->
+    <title>Perfil</title>
+</head>
+
+<body onload="init()">
+    <header class="header">
+        <!-- Barra de navegação superior -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <h3 class="text-center text-white pt-5"><img></h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="col-xs-12 col-11 col-md-4">
+                    <img src="/img/SaveMoney.png">
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <a class="nav-link active" href="">Home</a>
+                        <a class="nav-link active" href="perfil.html">Perfil</a>
+                        <a class="nav-link active" href="">Investimentos</a>
+                        <a class="nav-link active" href="">Notícias</a>
+                        <a class="nav-link active" href="">Sobre Nós</a>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" aria-label="Search" placeholder="Pesquisar ">
+                        <button class="btn btn-outline-light" type="submit">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    </head>
+
+    <h1>Perfil</h1>
+
+    <div id="cadastro">
+        <a href="/html/cadastro.html"><input type="button" class="btn btn-danger" id="btnClear"
+                value="Cadastro Perfil"></a>
+    </div>
+
+    <main>
+        <img id="foto" src="/img/foto.png">
+
+        <form id="perfil">
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputId">Id:</label>
+                    <h2 class="form-control" id="inputId" disabled>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputNome">Nome:</label>
+                    <h2 class="form-control" id="inputNome" disabled>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputEmail">Email:</label>
+                    <h2 class="form-control" id="inputEmail" disabled>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputCelular">Celular:</label>
+                    <h2 class="form-control" id="inputCelular" disabled>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputEstado">Estado:</label>
+                    <h2 class="form-control" id="inputEstado" disabled>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputCidade">Cidade:</label>
+                    <h2 class="form-control" id="inputCidade" disabled>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputBanco">Banco:</label>
+                    <h2 class="form-control" id="inputBanco" disabled>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputEmpresa">Empresa:</label>
+                    <h2 class="form-control" id="inputEmpresa" disabled>
+                </div>
+            </div>
+        </form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="../json/app.js"></script>
+        <script>
+            function init() {
+                exibeUltimoCadastro();
+            }
+
+            function exibeUltimoCadastro() {
+                let cadastro = db.data[db.data.length - 1];
+                $("#inputId").append(`<td>${cadastro.id}</td>`);
+                $("#inputNome").append(`<td>${cadastro.Nome}</td>`);
+                $("#inputEmail").append(`<td>${cadastro.Email}</td>`);
+                $("#inputCelular").append(`<td>${cadastro.Celular}</td>`);
+                $("#inputEstado").append(`<td>${cadastro.Estado}</td>`);
+                $("#inputCidade").append(`<td>${cadastro.Cidade}</td>`);
+                $("#inputBanco").append(`<td>${cadastro.Banco}</td>`);
+                $("#inputEmpresa").append(`<td>${cadastro.Empresa}</td>`);
+            }
+        </script>
+</body>
+</main>
+<footer>
+    <div class="text-center p-3">
+        <p class="footertxt">© 2022 Copyright: Trabalho Interdisciplinar</b></p>
+    </div>
+</footer>
+
+</html>
